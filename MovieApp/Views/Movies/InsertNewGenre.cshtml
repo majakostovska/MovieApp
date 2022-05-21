@@ -1,0 +1,23 @@
+﻿@model MovieApp.Models.GenreMovie
+
+@{
+    ViewBag.Title = "InsertNewGenre";
+}
+
+<h2>InsertNewGenre</h2>
+
+@using (Html.BeginForm("InsertNewGenre", "Movies"))
+{
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.GenreId,
+                                 new SelectList(
+                                     Model.genres,
+                                     "Id",
+                                     "GenreName"), new { @class = "form-control" })
+        @Html.HiddenFor(m => m.MovieId)
+    </div>
+    <div class="form-group">
+
+        <button type="submit">Add genre to movie</button>
+    </div>
+}

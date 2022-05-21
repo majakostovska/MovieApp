@@ -1,0 +1,26 @@
+﻿@model MovieApp.Models.PersonMovie
+
+@{
+    ViewBag.Title = "InsertNewPerson";
+}
+
+<h2>Insert new person to @Model.movie.Name</h2>
+
+@using (Html.BeginForm("InsertNewPerson", "Movies"))
+{
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.PersonId,
+                                 new SelectList(
+                                     Model.people,
+                                     "Id",
+                                     "Name"), new { @class = "form-control" })
+        @Html.HiddenFor(m => m.MovieId)
+    </div>
+    <div class="form-group">
+
+        <button type="submit">Add person to movie</button>
+    </div>
+}
+
+
+
